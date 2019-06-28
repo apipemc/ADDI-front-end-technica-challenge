@@ -1,0 +1,12 @@
+// SCSS MIXINS
+@import 'mixins/_position.scss';
+
+// CONFIG MODULES
+@import 'modules/_vars.scss';
+@import 'modules/_breakpoints.scss';
+
+// COMPONENTS
+@import 'components/_main.scss';
+
+// RESPONSIVE
+@import 'modules/_breakpoints.scss';
