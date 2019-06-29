@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 import Table from 'views/components/table';
 
-class ContactList extends Component {
+class LeadList extends Component {
   static propTypes = {
     loading: PropTypes.bool.isRequired,
     data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-    listContacts: PropTypes.func.isRequired,
+    listLeads: PropTypes.func.isRequired,
   };
 
   columns = [
@@ -25,26 +25,26 @@ class ContactList extends Component {
       paths: [''],
       renderer: ({ item }) => (
         <>
-          <Link to={`contacts/${item.id}`}>Editar</Link>
+          <Link to={`leads/edit/${item.id}`}>Editar</Link>
         </>
       ),
     },
   ];
 
   componentDidMount() {
-    const { listContacts } = this.props;
-    listContacts();
+    const { listLeads } = this.props;
+    listLeads();
   }
 
   render() {
     const { loading, data } = this.props;
     return (
       <>
-        <Link to="/contacts/new">New Contact</Link>
+        <Link to="/leads/new">New Lead</Link>
         <Table columns={this.columns} loading={loading} data={data} />
       </>
     );
   }
 }
 
-export default ContactList;
+export default LeadList;

@@ -1,26 +1,31 @@
-import ContactListScreen from 'views/screens/contacts/list';
-import ContactNewScreen from 'views/screens/contacts/new';
-import ContactEditScreen from 'views/screens/contacts/edit';
+import LeadsListScreen from 'views/screens/leads/list';
+import LeadsNewScreen from 'views/screens/leads/new';
+import LeadsEditScreen from 'views/screens/leads/edit';
 
 const routes = [
   {
     path: '/',
-    component: ContactListScreen,
+    component: LeadsListScreen,
     exact: true,
   },
   {
-    path: '/contacts',
-    component: ContactListScreen,
+    path: '/leads',
+    component: LeadsListScreen,
     exact: true,
   },
   {
-    path: '/contacts/new',
-    component: ContactNewScreen,
+    path: '/leads/new',
+    component: LeadsNewScreen,
     exact: true,
   },
   {
-    path: '/contacts/:id',
-    component: ContactEditScreen,
+    path: '/leads/edit/:id',
+    component: LeadsEditScreen,
+    exact: true,
+  },
+  {
+    path: '/leads/:id',
+    component: () => null,
     exact: true,
   },
 ];

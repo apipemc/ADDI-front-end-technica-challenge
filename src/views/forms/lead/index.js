@@ -1,8 +1,7 @@
 import { reduxForm } from 'redux-form/immutable';
 
-import ContactsForm from './form';
+import LeadForm from './form';
 
 export default reduxForm({
   form: 'contacts',
-  enableReinitialize: true,
-})(ContactsForm);
+})(LeadForm);

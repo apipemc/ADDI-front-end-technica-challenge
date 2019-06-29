@@ -4,8 +4,8 @@ import { connectRouter } from 'connected-react-router/immutable';
 import { reducer as form } from 'redux-form/immutable';
 import { combineReducers } from 'redux-immutable';
 
-import contact from 'modules/contact';
-import contacts from 'modules/contacts';
+import lead from 'modules/lead';
+import leads from 'modules/leads';
 
 import history from './history';
 
@@ -15,8 +15,8 @@ const appReducer = combineReducers({
   router: connectRouter(history),
 
   // app
-  contact,
-  contacts,
+  lead,
+  leads,
 });
 
 const actions = [];

@@ -1,8 +1,8 @@
 import { routinePromiseWatcherSaga } from 'redux-saga-routines';
 import { all, call } from 'redux-saga/effects';
 
-import { contactWatchSaga } from 'modules/contact';
-import { contactsWatchSaga } from 'modules/contacts';
+import { leadWatchSaga } from 'modules/lead';
+import { leadsWatchSaga } from 'modules/leads';
 
 function* rootSaga() {
   try {
@@ -11,8 +11,8 @@ function* rootSaga() {
       call(routinePromiseWatcherSaga),
 
       // app
-      call(contactWatchSaga),
-      call(contactsWatchSaga),
+      call(leadWatchSaga),
+      call(leadsWatchSaga),
     ]);
   } catch (error) {
     throw error;

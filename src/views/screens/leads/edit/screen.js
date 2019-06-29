@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { bindedUpdateContact } from 'modules/contact';
+import { bindedUpdateLead } from 'modules/lead';
 
-import ContactForm from 'views/forms/contact';
+import LeadForm from 'views/forms/lead';
 
 class Screen extends Component {
   static propTypes = {
@@ -18,7 +18,7 @@ class Screen extends Component {
         id: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
-    retrieveContact: PropTypes.func.isRequired,
+    retrieveLead: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -30,16 +30,16 @@ class Screen extends Component {
       match: {
         params: { id },
       },
-      retrieveContact,
+      retrieveLead,
     } = this.props;
-    retrieveContact(id);
+    retrieveLead(id);
   }
 
   onSubmitSuccess = () => {
     const {
       history: { push },
     } = this.props;
-    push('/contacts');
+    push('/leads');
   };
 
   render() {
@@ -51,11 +51,11 @@ class Screen extends Component {
 
     return (
       <div>
-        <Link to="/contacts">Back</Link>
-        <ContactForm
+        <Link to="/leads">Back</Link>
+        <LeadForm
           initialValues={item}
           onSubmitSuccess={this.onSubmitSuccess}
-          onSubmit={bindedUpdateContact}
+          onSubmit={bindedUpdateLead}
         />
       </div>
     );

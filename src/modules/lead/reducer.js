@@ -1,26 +1,26 @@
 import { fromJS } from 'immutable';
-import { listContacts } from './actions';
+import { retrieveLead } from './actions';
 
 const initialState = fromJS({
   loading: false,
   error: null,
-  items: [],
+  item: {},
 });
 
 const handleTrigger = state => state.set('loading', true);
 const handleSuccess = (state, action) =>
-  state.set('error', null).set('items', fromJS(action.payload));
+  state.set('error', null).set('item', fromJS(action.payload));
 const handleFailure = (state, action) => state.set('error', action.payload);
 const handleFulfill = state => state.set('loading', false);
 
 const handlers = {
-  [listContacts.TRIGGER]: handleTrigger,
-  [listContacts.SUCCESS]: handleSuccess,
-  [listContacts.FAILURE]: handleFailure,
-  [listContacts.FULFILL]: handleFulfill,
+  [retrieveLead.TRIGGER]: handleTrigger,
+  [retrieveLead.SUCCESS]: handleSuccess,
+  [retrieveLead.FAILURE]: handleFailure,
+  [retrieveLead.FULFILL]: handleFulfill,
 };
 
-const eventsReducer = (state = initialState, action) =>
+const reducer = (state = initialState, action) =>
   handlers[action.type] ? handlers[action.type](state, action) : state;
 
-export default eventsReducer;
+export default reducer;
