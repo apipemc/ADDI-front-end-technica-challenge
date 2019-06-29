@@ -9,7 +9,7 @@ export function* listEventsSaga() {
     const { data } = yield call(http, 'contacts');
     yield put(listContacts.success(data));
   } catch (error) {
-    yield put(listContacts.failure(new TypeError(error)));
+    yield put(listContacts.failure(new Error(error.message)));
   } finally {
     yield put(listContacts.fulfill());
   }

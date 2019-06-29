@@ -2,13 +2,13 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import http from 'utils/http';
 import { retrieveContact, createContact, updateContact } from './actions';
 
-export function* retrieveContactSaga() {
+export function* retrieveContactSaga({ payload }) {
   try {
     yield put(retrieveContact.request());
-    const response = yield call(http, '');
-    yield put(retrieveContact.success(response));
+    const { data } = yield call(http, `contacts/${payload}`);
+    yield put(retrieveContact.success(data));
   } catch (error) {
-    yield put(retrieveContact.failure(error));
+    yield put(retrieveContact.failure(new Error(error.message)));
   } finally {
     yield put(retrieveContact.fulfill());
   }
@@ -18,10 +18,10 @@ export function* createContactSaga({ payload }) {
   try {
     const values = payload.values.toJS();
     yield put(createContact.request());
-    const response = yield call(http, '', values);
-    yield put(createContact.success(response));
+    const { data } = yield call(http, 'contacts', 'post', values);
+    yield put(createContact.success(data));
   } catch (error) {
-    yield put(createContact.failure(new TypeError(payload)));
+    yield put(createContact.failure(new Error(error.message)));
   } finally {
     yield put(createContact.fulfill());
   }
@@ -30,11 +30,12 @@ export function* createContactSaga({ payload }) {
 export function* updateContactSaga({ payload }) {
   try {
     const values = payload.values.toJS();
+    const { id, ...params } = values;
     yield put(updateContact.request());
-    const response = yield call(http, '', values);
-    yield put(updateContact.success(response.data));
+    const { data } = yield call(http, `contacts/${id}`, 'put', params);
+    yield put(updateContact.success(data));
   } catch (error) {
-    yield put(updateContact.failure(new TypeError(payload)));
+    yield put(updateContact.failure(new Error(error.message)));
   } finally {
     yield put(updateContact.fulfill());
   }

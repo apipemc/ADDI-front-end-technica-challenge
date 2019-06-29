@@ -7,9 +7,6 @@ export const isLoadingContact = createImmutableSelector(getContact, contact =>
 export const getContactError = createImmutableSelector(getContact, contact =>
   contact.get('error')
 );
-export const getContactItems = createImmutableSelector(getContact, contact =>
-  contact.get('items').toJS()
-);
-export const getContactMeta = createImmutableSelector(getContact, contact =>
-  contact.get('meta').toJS()
+export const getContactItem = createImmutableSelector(getContact, contact =>
+  contact.get('item').toJS()
 );
