@@ -5,17 +5,17 @@ import ReactDOM from 'react-dom';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 import { Provider } from 'react-redux';
 
+import 'utils/axios-setup';
 import store from 'store';
 import history from 'store/history';
-
-import App from 'views/components/App';
+import Routes from 'routes';
 
 import * as serviceWorker from 'utils/serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <Routes />
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
