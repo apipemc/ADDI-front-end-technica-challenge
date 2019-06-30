@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import Row from './row';
 
@@ -47,7 +48,7 @@ class Table extends Component {
       <tbody className="table__tbody">
         <tr className="table__tbody-tr">
           <td colSpan={columns.length} className="table__td">
-            <strong>Loading...</strong>
+            <ClipLoader />
           </td>
         </tr>
       </tbody>

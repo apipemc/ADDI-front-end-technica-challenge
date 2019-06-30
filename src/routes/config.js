@@ -1,32 +1,55 @@
-import LeadsListScreen from 'views/screens/leads/list';
-import LeadsNewScreen from 'views/screens/leads/new';
-import LeadsEditScreen from 'views/screens/leads/edit';
+import Loadable from 'react-loadable';
+import LoadingOverlay from 'react-loading-overlay';
+
+const AsyncAppContainer = Loadable({
+  loader: () => import(/* webpackChunkName: 'app' */ 'views/containers/app'),
+  loading: LoadingOverlay,
+});
+
+const AsyncLeadListScreen = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'lead-list' */ 'views/screens/leads/list'),
+  loading: LoadingOverlay,
+});
+
+const AsyncLeadsNewScreen = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'lead-new' */ 'views/screens/leads/new'),
+  loading: LoadingOverlay,
+});
+
+const AsyncLeadsEditScreen = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'lead-edit' */ 'views/screens/leads/edit'),
+  loading: LoadingOverlay,
+});
 
 const routes = [
   {
     path: '/',
-    component: LeadsListScreen,
-    exact: true,
-  },
-  {
-    path: '/leads',
-    component: LeadsListScreen,
-    exact: true,
-  },
-  {
-    path: '/leads/new',
-    component: LeadsNewScreen,
-    exact: true,
-  },
-  {
-    path: '/leads/edit/:id',
-    component: LeadsEditScreen,
-    exact: true,
-  },
-  {
-    path: '/leads/:id',
-    component: () => null,
-    exact: true,
+    component: AsyncAppContainer,
+    routes: [
+      {
+        path: '/',
+        component: AsyncLeadListScreen,
+        exact: true,
+      },
+      {
+        path: '/leads',
+        component: AsyncLeadListScreen,
+        exact: true,
+      },
+      {
+        path: '/leads/new',
+        component: AsyncLeadsNewScreen,
+        exact: true,
+      },
+      {
+        path: '/leads/edit/:id',
+        component: AsyncLeadsEditScreen,
+        exact: true,
+      },
+    ],
   },
 ];
 

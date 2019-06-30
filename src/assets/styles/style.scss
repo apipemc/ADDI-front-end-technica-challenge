@@ -3,10 +3,12 @@
 
 // CONFIG MODULES
 @import 'modules/_vars.scss';
-@import 'modules/_breakpoints.scss';
+@import 'modules/_main.scss';
+@import 'modules/_button.scss';
 
 // COMPONENTS
-@import 'components/_main.scss';
+@import 'components/_header.scss';
+@import 'components/_table.scss';
 
 // RESPONSIVE
 @import 'modules/_breakpoints.scss';

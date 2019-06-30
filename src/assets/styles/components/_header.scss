@@ -1,0 +1,43 @@
+$navbar-background-color: $grey-light !default;
+$navbar-box-shadow-size: 0 2px 0 0 !default;
+$navbar-box-shadow-color: $grey-light !default;
+$navbar-height: 3.25rem !default;
+$navbar-padding-vertical: 1rem !default;
+$navbar-padding-horizontal: 2rem !default;
+$navbar-z: 30 !default;
+
+.navbar {
+  background-color: $navbar-background-color;
+  min-height: $navbar-height;
+  z-index: $navbar-z;
+  align-items: stretch;
+  display: flex;
+  .navbar-brand {
+    align-items: stretch;
+    display: flex;
+    flex-shrink: 0;
+    min-height: 3.25rem;
+  }
+  .navbar-items {
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+  .navbar-item {
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    img {
+      max-height: 1.75rem;
+    }
+    a {
+      color: $black-ter;
+      line-height: 1.5;
+      padding: 0.5rem 0.75rem;
+      text-decoration: none;
+      cursor: pointer;
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+}

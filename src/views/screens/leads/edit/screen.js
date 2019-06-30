@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+import ClipLoader from 'react-spinners/ClipLoader';
 import { Link } from 'react-router-dom';
 
 import { bindedUpdateLead } from 'modules/lead';
@@ -46,7 +48,7 @@ class Screen extends Component {
     const { loading, item } = this.props;
 
     if (loading || !item) {
-      return null;
+      return <ClipLoader />;
     }
 
     return (
