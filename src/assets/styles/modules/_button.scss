@@ -1,0 +1,36 @@
+$button-color: $grey-darker !default;
+$button-background-color: $white !default;
+
+$button-border-color: $grey-lighter !default;
+$button-border-width: 1px !default !default;
+
+$button-padding-vertical: calc(0.375em - #{$button-border-width}) !default;
+$button-padding-horizontal: 0.75em !default;
+
+.button {
+  align-items: center;
+  background-color: $button-background-color;
+  border: $button-border-width solid $button-border-color;
+  border-radius: 4px;
+  box-shadow: none;
+  display: inline-flex;
+  color: $button-color;
+  cursor: pointer;
+  justify-content: center;
+  height: 2.25em;
+  padding-bottom: $button-padding-vertical;
+  padding-left: $button-padding-horizontal;
+  padding-right: $button-padding-horizontal;
+  padding-top: $button-padding-vertical;
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  vertical-align: top;
+  text-decoration: none;
+  .icon {
+    & {
+      height: 1.5em;
+      width: 1.5em;
+    }
+  }
+}

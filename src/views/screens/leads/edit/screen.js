@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Link } from 'react-router-dom';
 
@@ -52,14 +53,21 @@ class Screen extends Component {
     }
 
     return (
-      <div>
-        <Link to="/leads">Back</Link>
-        <LeadForm
-          initialValues={item}
-          onSubmitSuccess={this.onSubmitSuccess}
-          onSubmit={bindedUpdateLead}
-        />
-      </div>
+      <>
+        <Link className="button" to="/leads">
+          <span className="icon">
+            <FontAwesomeIcon icon="arrow-left" />
+          </span>
+          <span>Back</span>
+        </Link>
+        <div className="form__new pt-20">
+          <LeadForm
+            initialValues={item}
+            onSubmitSuccess={this.onSubmitSuccess}
+            onSubmit={bindedUpdateLead}
+          />
+        </div>
+      </>
     );
   }
 }

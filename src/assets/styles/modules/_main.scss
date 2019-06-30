@@ -17,6 +17,12 @@ img {
   max-width: 100%;
 }
 
+a {
+  color: hsl(217, 71%, 53%);
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .content__main {
   overflow: hidden;
   position: relative;

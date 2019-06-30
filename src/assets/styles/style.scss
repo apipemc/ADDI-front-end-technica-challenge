@@ -1,9 +1,10 @@
 // SCSS MIXINS
-@import 'mixins/_position.scss';
+@import 'mixins/_spaces.scss';
 
 // CONFIG MODULES
 @import 'modules/_vars.scss';
 @import 'modules/_main.scss';
+@import 'modules/_form.scss';
 @import 'modules/_button.scss';
 
 // COMPONENTS

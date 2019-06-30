@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { bindedCreateLead } from 'modules/lead';
 
@@ -15,10 +16,20 @@ const Screen = props => {
   };
 
   return (
-    <div>
-      <Link to="/leads">Back</Link>
-      <LeadForm onSubmitSuccess={onSubmitSuccess} onSubmit={bindedCreateLead} />
-    </div>
+    <>
+      <Link className="button" to="/leads">
+        <span className="icon">
+          <FontAwesomeIcon icon="arrow-left" />
+        </span>
+        <span>Back</span>
+      </Link>
+      <div className="form__new pt-20">
+        <LeadForm
+          onSubmitSuccess={onSubmitSuccess}
+          onSubmit={bindedCreateLead}
+        />
+      </div>
+    </>
   );
 };
 
