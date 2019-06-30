@@ -11,7 +11,8 @@
   "build": {
     "env": {
       "REACT_APP_ROOT": "src/",
-      "REACT_APP_API_HOST": "https://addi-back-end-technica-challen.herokuapp.com/api"
+      "REACT_APP_API_HOST": "https://addi-back-end-technica-challen.herokuapp.com/api",
+      "REACT_APP_WSS_URL": "ws://addi-back-end-technica-challen.herokuapp.com"
     }
   },
   "routes": [

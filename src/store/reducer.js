@@ -6,6 +6,7 @@ import { combineReducers } from 'redux-immutable';
 
 import lead from 'modules/lead';
 import leads from 'modules/leads';
+import wsNotifications from 'modules/ws-notifications';
 
 import history from './history';
 
@@ -17,6 +18,7 @@ const appReducer = combineReducers({
   // app
   lead,
   leads,
+  wsNotifications,
 });
 
 const actions = [];
