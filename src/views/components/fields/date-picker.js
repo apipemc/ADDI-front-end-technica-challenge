@@ -37,7 +37,7 @@ const formatDate = value => {
   if (!value) {
     return value;
   }
-  return format(parse(value, 'MM/dd/yyyy', new Date()), 'yyyy-MM-dd');
+  return format(new Date(value), 'yyyy-MM-dd');
 };
 
 const normalize = value => {

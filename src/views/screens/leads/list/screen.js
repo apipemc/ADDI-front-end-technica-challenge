@@ -21,11 +21,15 @@ class LeadList extends Component {
       paths: ['last_name'],
     },
     {
+      titles: ['Status'],
+      paths: ['status'],
+    },
+    {
       titles: ['Actions'],
       paths: [''],
       renderer: ({ item }) => (
         <>
-          <Link to={`leads/edit/${item.id}`}>Editar</Link>
+          <Link to={`leads/edit/${item._id}`}>Editar</Link>
         </>
       ),
     },

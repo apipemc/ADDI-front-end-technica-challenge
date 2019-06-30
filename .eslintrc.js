@@ -26,7 +26,7 @@ module.exports = {
     'no-underscore-dangle': [
       'error',
       {
-        allow: ['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'],
+        allow: ['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__', '_id'],
       },
     ],
   },

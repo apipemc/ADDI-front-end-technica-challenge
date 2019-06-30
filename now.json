@@ -8,6 +8,12 @@
       "config": { "distDir": "build" }
     }
   ],
+  "build": {
+    "env": {
+      "REACT_APP_ROOT": "src/",
+      "REACT_APP_API_HOST": "https://addi-back-end-technica-challen.herokuapp.com/api"
+    }
+  },
   "routes": [
     {
       "src": "/static/(.*)",

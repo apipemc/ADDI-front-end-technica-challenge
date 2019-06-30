@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import humanize from 'humanize-string';
-
-const capitalize = ([s, ...tring]) => [s.toUpperCase(), ...tring].join('');
+import capitalize from 'utils/capitalize';
 
 const FormatError = ({ name, error }) => (
   <>

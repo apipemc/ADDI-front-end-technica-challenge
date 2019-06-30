@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import deepGet from 'utils/deep-get';
+import capitalize from 'utils/capitalize';
 
 class Data extends PureComponent {
   static propTypes = {
@@ -19,7 +20,7 @@ class Data extends PureComponent {
     item: PropTypes.shape({}).isRequired,
   };
 
-  renderText() {
+  renderData() {
     const {
       item,
       keyField,
@@ -33,14 +34,14 @@ class Data extends PureComponent {
       if (renderer) {
         const Renderer = renderer;
         return (
-          <div key={`td-text-${title}-${path}-${item[keyField]}`} id="td-text">
+          <div key={`td-render-${title}-${path}-${item[keyField]}`}>
             <Renderer {...this.props} />
           </div>
         );
       }
       return (
-        <div key={`td-text-${title}-${path}-${item[keyField]}`} id="td-text">
-          {text}
+        <div key={`td-text-${title}-${path}-${item[keyField]}`}>
+          {capitalize(text)}
         </div>
       );
     });
@@ -49,7 +50,7 @@ class Data extends PureComponent {
   }
 
   render() {
-    return <td className="table__td">{this.renderText()}</td>;
+    return <td className="table__td">{this.renderData()}</td>;
   }
 }
 

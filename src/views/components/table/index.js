@@ -74,7 +74,7 @@ class Table extends Component {
       />
     ));
 
-    return <tbody className="animated fadeIn redux-table__tbody">{rows}</tbody>;
+    return <tbody className="table__tbody">{rows}</tbody>;
   };
 
   renderTableHeader = () => {
