@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { listLeads } from './actions';
+import { listLeads, updateListLead } from './actions';
 
 const initialState = fromJS({
   loading: false,
@@ -13,11 +13,26 @@ const handleSuccess = (state, action) =>
 const handleFailure = (state, action) => state.set('error', action.payload);
 const handleFulfill = state => state.set('loading', false);
 
+const handleUpdateLeadSuccess = (state, { payload }) => {
+  return state.set('error', null).update('items', items => {
+    if (!items) {
+      return items;
+    }
+    const { _id } = payload;
+    const idx = items.findIndex(item => item.get('_id') === _id);
+    if (idx === -1) {
+      return items;
+    }
+    return items.set(idx, fromJS(payload));
+  });
+};
+
 const handlers = {
   [listLeads.TRIGGER]: handleTrigger,
   [listLeads.SUCCESS]: handleSuccess,
   [listLeads.FAILURE]: handleFailure,
   [listLeads.FULFILL]: handleFulfill,
+  [updateListLead.SUCCESS]: handleUpdateLeadSuccess,
 };
 
 const reducer = (state = initialState, action) =>
