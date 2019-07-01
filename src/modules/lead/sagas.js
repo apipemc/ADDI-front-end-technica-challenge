@@ -42,9 +42,9 @@ export function* createLeadSaga({ payload }) {
 export function* updateLeadSaga({ payload }) {
   try {
     const values = payload.values.toJS();
-    const { id, ...params } = values;
+    const { _id, ...params } = values;
     yield put(updateLead.request());
-    const { data } = yield call(http, `leads/${id}`, 'put', params);
+    const { data } = yield call(http, `leads/${_id}`, 'put', params);
     yield put(updateLead.success(data));
     yield call([toast, 'success'], 'Lead updated correctly');
   } catch ({ response }) {

@@ -66,16 +66,9 @@ const eighTeenYearsAgo = () => {
 
 const maxDate = () => format(new Date(), 'yyyy-MM-dd');
 
-const ContactsForm = ({
-  initialValues,
-  handleSubmit,
-  pristine,
-  submitting,
-  invalid,
-  submitFailed,
-}) => (
+const ContactsForm = ({ initialValues, handleSubmit, submitting }) => (
   <Form onSubmit={handleSubmit}>
-    <Hidden name="id" />
+    <Hidden name="_id" />
     <div className="field">
       <label className="label" htmlFor="first_name">
         First Name:
@@ -251,7 +244,7 @@ const ContactsForm = ({
         <button
           className="button success is-fullwidth"
           type="submit"
-          disabled={pristine || submitting || (submitFailed ? false : invalid)}
+          disabled={submitting}
         >
           {initialValues.has('id') ? 'Update' : 'Create'}
         </button>
@@ -263,10 +256,7 @@ const ContactsForm = ({
 ContactsForm.propTypes = {
   initialValues: PropTypes.shape({}),
   handleSubmit: PropTypes.func.isRequired,
-  pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
-  invalid: PropTypes.bool.isRequired,
-  submitFailed: PropTypes.bool.isRequired,
 };
 
 ContactsForm.defaultProps = {
