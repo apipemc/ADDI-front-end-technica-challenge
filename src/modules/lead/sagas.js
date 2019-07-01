@@ -1,5 +1,6 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import http from 'utils/http';
+import { errorToMsg, errorToSubmissionError } from 'utils/error-messages';
 import { retrieveLead, createLead, updateLead } from './actions';
 
 export function* retrieveLeadSaga({ payload }) {
@@ -7,8 +8,8 @@ export function* retrieveLeadSaga({ payload }) {
     yield put(retrieveLead.request());
     const { data } = yield call(http, `leads/${payload}`);
     yield put(retrieveLead.success(data));
-  } catch (error) {
-    yield put(retrieveLead.failure(new Error(error.message)));
+  } catch ({ response }) {
+    yield put(retrieveLead.failure(errorToMsg(response.data)));
   } finally {
     yield put(retrieveLead.fulfill());
   }
@@ -20,8 +21,10 @@ export function* createLeadSaga({ payload }) {
     yield put(createLead.request());
     const { data } = yield call(http, 'leads', 'post', values);
     yield put(createLead.success(data));
-  } catch (error) {
-    yield put(createLead.failure(new Error(error.message)));
+  } catch ({ response }) {
+    yield put(
+      createLead.failure(errorToSubmissionError(response.data.errors, payload))
+    );
   } finally {
     yield put(createLead.fulfill());
   }
@@ -34,8 +37,10 @@ export function* updateLeadSaga({ payload }) {
     yield put(updateLead.request());
     const { data } = yield call(http, `leads/${id}`, 'put', params);
     yield put(updateLead.success(data));
-  } catch (error) {
-    yield put(updateLead.failure(new Error(error.message)));
+  } catch ({ response }) {
+    yield put(
+      updateLead.failure(errorToSubmissionError(response.data.errors, payload))
+    );
   } finally {
     yield put(updateLead.fulfill());
   }
