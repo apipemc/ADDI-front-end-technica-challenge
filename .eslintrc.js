@@ -5,6 +5,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/no-array-index-key': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {

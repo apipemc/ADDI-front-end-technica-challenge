@@ -1,7 +1,13 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import http from 'utils/http';
 import { errorToMsg, errorToSubmissionError } from 'utils/error-messages';
-import { retrieveLead, createLead, updateLead } from './actions';
+import {
+  retrieveLead,
+  createLead,
+  updateLead,
+  sendValidationInfoLead,
+  sendValidationCredLead,
+} from './actions';
 
 export function* retrieveLeadSaga({ payload }) {
   try {
@@ -46,10 +52,37 @@ export function* updateLeadSaga({ payload }) {
   }
 }
 
+export function* sendValidationInfoLeadSaga({ payload }) {
+  try {
+    yield put(sendValidationInfoLead.request());
+    yield all([
+      call(http, `leads/${payload._id}/process_judicial_past`),
+      call(http, `leads/${payload._id}/process_personal_information`),
+    ]);
+  } catch ({ response }) {
+    yield put(sendValidationInfoLead.failure(errorToMsg(response.data)));
+  } finally {
+    yield put(sendValidationInfoLead.fulfill());
+  }
+}
+
+export function* sendValidationCredLeadSaga({ payload }) {
+  try {
+    yield put(sendValidationCredLead.request());
+    yield call(http, `leads/${payload._id}/process_credit`);
+  } catch ({ response }) {
+    yield put(sendValidationCredLead.failure(errorToMsg(response.data)));
+  } finally {
+    yield put(sendValidationCredLead.fulfill());
+  }
+}
+
 export function* leadWatchSaga() {
   yield all([
     takeLatest(retrieveLead.TRIGGER, retrieveLeadSaga),
     takeLatest(createLead.TRIGGER, createLeadSaga),
     takeLatest(updateLead.TRIGGER, updateLeadSaga),
+    takeLatest(sendValidationInfoLead.TRIGGER, sendValidationInfoLeadSaga),
+    takeLatest(sendValidationCredLead.TRIGGER, sendValidationCredLeadSaga),
   ]);
 }

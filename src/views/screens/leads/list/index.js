@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { listLeads, isLoadingLeads, getLeadsItems } from 'modules/leads';
+import { sendValidationInfoLead, sendValidationCredLead } from 'modules/lead';
 import Screen from './screen';
 
 const mapStateToProps = state => ({
@@ -9,6 +10,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   listLeads,
+  sendValidationInfoLead,
+  sendValidationCredLead,
 };
 
 export default connect(

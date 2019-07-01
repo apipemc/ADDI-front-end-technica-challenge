@@ -10,29 +10,94 @@ class LeadList extends Component {
     loading: PropTypes.bool.isRequired,
     data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     listLeads: PropTypes.func.isRequired,
+    sendValidationInfoLead: PropTypes.func.isRequired,
+    sendValidationCredLead: PropTypes.func.isRequired,
   };
 
   columns = [
     {
-      titles: ['First Name'],
-      paths: ['first_name'],
+      titles: ['Full Name'],
+      paths: [''],
+      renderer: ({ item }) => (
+        <span>{`${item.first_name} ${item.last_name}`}</span>
+      ),
     },
     {
-      titles: ['Last Name'],
-      paths: ['last_name'],
+      titles: ['Email'],
+      paths: ['email'],
+    },
+    {
+      titles: ['Document Type'],
+      paths: ['document_type'],
+    },
+    {
+      titles: ['Document'],
+      paths: ['document_id'],
+    },
+    {
+      titles: ['Score'],
+      paths: ['score'],
     },
     {
       titles: ['Status'],
       paths: ['status'],
     },
     {
+      titles: ['Information'],
+      paths: [''],
+      renderer: ({ item }) => {
+        if (
+          !item.approved_judicial_past &&
+          !item.approved_personal_information &&
+          item.status === 'Prospect'
+        ) {
+          return (
+            <button
+              className="button"
+              type="button"
+              onClick={() => this.handleValidationInfo(item)}
+            >
+              Validar
+            </button>
+          );
+        }
+        const status =
+          item.approved_judicial_past && item.approved_personal_information
+            ? 'Yes'
+            : 'No';
+        return status;
+      },
+    },
+    {
+      titles: ['Credito'],
+      paths: [''],
+      renderer: ({ item }) => {
+        if (
+          item.approved_judicial_past &&
+          item.approved_personal_information &&
+          item.status === 'Prospect'
+        ) {
+          return (
+            <button
+              className="button"
+              type="button"
+              onClick={() => this.handleValidationCred(item)}
+            >
+              Validar
+            </button>
+          );
+        }
+        const status =
+          item.approved_judicial_past && item.approved_personal_information
+            ? 'Yes'
+            : 'No';
+        return status;
+      },
+    },
+    {
       titles: ['Actions'],
       paths: [''],
-      renderer: ({ item }) => (
-        <>
-          <Link to={`leads/edit/${item._id}`}>Editar</Link>
-        </>
-      ),
+      renderer: ({ item }) => <Link to={`leads/edit/${item._id}`}>Editar</Link>,
     },
   ];
 
@@ -40,6 +105,16 @@ class LeadList extends Component {
     const { listLeads } = this.props;
     listLeads();
   }
+
+  handleValidationInfo = item => {
+    const { sendValidationInfoLead } = this.props;
+    sendValidationInfoLead(item);
+  };
+
+  handleValidationCred = item => {
+    const { sendValidationCredLead } = this.props;
+    sendValidationCredLead(item);
+  };
 
   render() {
     const { loading, data } = this.props;

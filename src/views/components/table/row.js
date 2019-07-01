@@ -31,9 +31,9 @@ class TableRow extends PureComponent {
   renderColumns() {
     const { item, columns, keyField } = this.props;
 
-    return columns.map(column => (
+    return columns.map((column, id) => (
       <Data
-        key={`td-${column.paths.join()}-${item[keyField]}`}
+        key={`td-${column.paths.join()}-${id}`}
         item={item}
         keyField={keyField}
         column={column}

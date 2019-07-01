@@ -66,13 +66,8 @@ class Table extends Component {
       return this.renderEmptyState();
     }
 
-    const rows = data.map(item => (
-      <Row
-        key={`tr-${item[keyField]}`}
-        item={item}
-        keyField={keyField}
-        columns={columns}
-      />
+    const rows = data.map((item, id) => (
+      <Row key={`tr-${id}`} item={item} keyField={keyField} columns={columns} />
     ));
 
     return <tbody className="table__tbody">{rows}</tbody>;
@@ -86,12 +81,12 @@ class Table extends Component {
       width: `${width}%`,
     };
 
-    const headers = columns.map(header => {
+    const headers = columns.map((header, idx) => {
       const [title] = header.titles;
 
       return (
         <th
-          key={`th-${header.paths.join()}`}
+          key={`th-${idx}`}
           scope="col"
           style={style}
           className="table__th--col"

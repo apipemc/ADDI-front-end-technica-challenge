@@ -29,7 +29,7 @@ class Data extends PureComponent {
 
     const content = titles.map((title, idx) => {
       const path = paths[idx];
-      const text = deepGet(item, path);
+      const text = deepGet(item, path) || '-';
 
       if (renderer) {
         const Renderer = renderer;
@@ -39,9 +39,10 @@ class Data extends PureComponent {
           </div>
         );
       }
+
       return (
         <div key={`td-text-${title}-${path}-${item[keyField]}`}>
-          {capitalize(text)}
+          {capitalize(text.toString())}
         </div>
       );
     });
