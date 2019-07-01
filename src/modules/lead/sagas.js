@@ -1,6 +1,7 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import http from 'utils/http';
 import { errorToMsg, errorToSubmissionError } from 'utils/error-messages';
+import { toast } from 'react-toastify';
 import {
   retrieveLead,
   createLead,
@@ -15,7 +16,9 @@ export function* retrieveLeadSaga({ payload }) {
     const { data } = yield call(http, `leads/${payload}`);
     yield put(retrieveLead.success(data));
   } catch ({ response }) {
-    yield put(retrieveLead.failure(errorToMsg(response.data)));
+    const message = errorToMsg(response.data);
+    yield call([toast, 'error'], message);
+    yield put(retrieveLead.failure(message));
   } finally {
     yield put(retrieveLead.fulfill());
   }
@@ -27,10 +30,10 @@ export function* createLeadSaga({ payload }) {
     yield put(createLead.request());
     const { data } = yield call(http, 'leads', 'post', values);
     yield put(createLead.success(data));
+    yield call([toast, 'success'], 'Lead created correctly.!');
   } catch ({ response }) {
-    yield put(
-      createLead.failure(errorToSubmissionError(response.data.errors, payload))
-    );
+    const { errors } = response.data;
+    yield put(createLead.failure(errorToSubmissionError(errors, payload)));
   } finally {
     yield put(createLead.fulfill());
   }
@@ -43,10 +46,10 @@ export function* updateLeadSaga({ payload }) {
     yield put(updateLead.request());
     const { data } = yield call(http, `leads/${id}`, 'put', params);
     yield put(updateLead.success(data));
+    yield call([toast, 'success'], 'Lead updated correctly');
   } catch ({ response }) {
-    yield put(
-      updateLead.failure(errorToSubmissionError(response.data.errors, payload))
-    );
+    const { errors } = response.data;
+    yield put(createLead.failure(errorToSubmissionError(errors, payload)));
   } finally {
     yield put(updateLead.fulfill());
   }
@@ -55,6 +58,9 @@ export function* updateLeadSaga({ payload }) {
 export function* sendValidationInfoLeadSaga({ payload }) {
   try {
     yield put(sendValidationInfoLead.request());
+    yield call([toast, 'info'], 'Sending validation information user...', {
+      toastId: payload._id,
+    });
     yield all([
       call(http, `leads/${payload._id}/process_judicial_past`),
       call(http, `leads/${payload._id}/process_personal_information`),
@@ -69,6 +75,9 @@ export function* sendValidationInfoLeadSaga({ payload }) {
 export function* sendValidationCredLeadSaga({ payload }) {
   try {
     yield put(sendValidationCredLead.request());
+    yield call([toast, 'info'], 'Sending validation credit user...', {
+      toastId: payload._id,
+    });
     yield call(http, `leads/${payload._id}/process_credit`);
   } catch ({ response }) {
     yield put(sendValidationCredLead.failure(errorToMsg(response.data)));
