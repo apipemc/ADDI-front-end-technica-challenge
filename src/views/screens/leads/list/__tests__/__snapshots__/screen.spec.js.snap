@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScreenNew should render a view 1`] = `ShallowWrapper {}`;
+
+exports[`ScreenNew should render a view render data 1`] = `ShallowWrapper {}`;

@@ -49,7 +49,7 @@ export function* updateLeadSaga({ payload }) {
     yield call([toast, 'success'], 'Lead updated correctly');
   } catch ({ response }) {
     const { errors } = response.data;
-    yield put(createLead.failure(errorToSubmissionError(errors, payload)));
+    yield put(updateLead.failure(errorToSubmissionError(errors, payload)));
   } finally {
     yield put(updateLead.fulfill());
   }

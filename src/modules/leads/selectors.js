@@ -10,6 +10,3 @@ export const getLeadsError = createImmutableSelector(getLeads, leads =>
 export const getLeadsItems = createImmutableSelector(getLeads, leads =>
   leads.get('items').toJS()
 );
-export const getLeadsMeta = createImmutableSelector(getLeads, leads =>
-  leads.get('meta').toJS()
-);

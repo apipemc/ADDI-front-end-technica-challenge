@@ -1,27 +1,14 @@
 import { call, put, all, takeEvery } from 'redux-saga/effects';
 import { connect } from '@giantmachines/redux-websocket';
-import { toast } from 'react-toastify';
-
+import { toastVerificacion } from 'utils/toast';
 import { updateListLead } from 'modules/leads';
 import { WS_MESSAGE_TYPE } from './types';
-
-const toastVerificacion = (toastId, message) => {
-  const isActive = toast.isActive(toastId);
-  if (isActive) {
-    toast.update(toastId, {
-      render: message,
-      type: toast.TYPE.SUCCESS,
-    });
-  } else {
-    toast.success(message, { toastId });
-  }
-};
 
 export function* connectToWs() {
   yield put(connect(`${process.env.REACT_APP_WSS_URL}`));
 }
 
-function* processMessage({ payload }) {
+export function* processMessage({ payload }) {
   const { type, data } = JSON.parse(payload.message);
   switch (type) {
     case 'UPDATE_LEAD::JUDICIAL_PASS':

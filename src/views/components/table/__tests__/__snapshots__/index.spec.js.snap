@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should render a view 1`] = `ShallowWrapper {}`;
+
+exports[`Table should render a view loading 1`] = `ShallowWrapper {}`;
