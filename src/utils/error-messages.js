@@ -8,7 +8,7 @@ const extractMessage = error => {
 };
 
 export const errorToMsg = error => {
-  const keys = ['message', 'error', 'errors'];
+  const keys = ['message'];
   const message = keys
     .reduce((msgs, key) => {
       const msg = extractMessage(error[key]);
@@ -26,17 +26,17 @@ export const errorToSubmissionError = (error, payload) => {
     return errorToMsg(error);
   }
 
+  const generalError = errorToMsg(error);
+  if (generalError) return new SubmissionError({ _error: generalError });
+
   const [...fields] = payload.props.registeredFields.keys();
 
   const fieldErrors = fields.reduce((errors, field) => {
-    const message = extractMessage(error[field]);
+    if (!error.errors[field]) return errors;
+    const message = extractMessage(error.errors[field]);
     if (!message) return errors;
     return { ...errors, [field]: message };
   }, {});
-
-  const generalError = errorToMsg(error);
-
-  if (!generalError) return new SubmissionError({ ...fieldErrors });
 
   return new SubmissionError({ ...fieldErrors, _error: generalError });
 };

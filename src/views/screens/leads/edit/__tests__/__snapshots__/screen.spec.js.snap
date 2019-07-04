@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ScreenNew should render a view 1`] = `ShallowWrapper {}`;
+exports[`ScreenNew should render a view 1`] = `
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  size={35}
+  sizeUnit="px"
+/>
+`;
 
-exports[`ScreenNew should render a view iteme 1`] = `ShallowWrapper {}`;
+exports[`ScreenNew should render a view iteme 1`] = `
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  size={35}
+  sizeUnit="px"
+/>
+`;

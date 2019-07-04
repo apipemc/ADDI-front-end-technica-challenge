@@ -38,12 +38,12 @@ describe('lead sagas', () => {
       .back(3)
       .throw({
         response: {
-          data: { error: 'error', message: 'msg' },
+          data: { message: 'msg' },
         },
       })
-      .call([toast, 'error'], 'msg; error')
+      .call([toast, 'error'], 'msg')
       .next()
-      .put(retrieveLead.failure('msg; error'))
+      .put(retrieveLead.failure('msg'))
       .next()
       .put(retrieveLead.fulfill())
       .next()
@@ -78,7 +78,11 @@ describe('lead sagas', () => {
           data: { errors: { document_id: 'required' } },
         },
       })
-      .put(createLead.failure(new SubmissionError({ document_id: 'required' })))
+      .put(
+        createLead.failure(
+          new SubmissionError({ document_id: 'required', _error: '' })
+        )
+      )
       .next()
       .put(createLead.fulfill())
       .next()
@@ -113,7 +117,9 @@ describe('lead sagas', () => {
           data: { errors: { _id: 'required' } },
         },
       })
-      .put(updateLead.failure(new SubmissionError({ _id: 'required' })))
+      .put(
+        updateLead.failure(new SubmissionError({ _id: 'required', _error: '' }))
+      )
       .next()
       .put(updateLead.fulfill())
       .next()
@@ -146,10 +152,10 @@ describe('lead sagas', () => {
       .back(3)
       .throw({
         response: {
-          data: { error: 'error', message: 'msg' },
+          data: { message: 'msg' },
         },
       })
-      .put(sendValidationInfoLead.failure('msg; error'))
+      .put(sendValidationInfoLead.failure('msg'))
       .next()
       .put(sendValidationInfoLead.fulfill())
       .next()
@@ -179,10 +185,10 @@ describe('lead sagas', () => {
       .back(3)
       .throw({
         response: {
-          data: { error: 'error', message: 'msg' },
+          data: { message: 'msg' },
         },
       })
-      .put(sendValidationCredLead.failure('msg; error'))
+      .put(sendValidationCredLead.failure('msg'))
       .next()
       .put(sendValidationCredLead.fulfill())
       .next()

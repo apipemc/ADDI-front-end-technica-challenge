@@ -1,5 +1,265 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ScreenNew should render a view 1`] = `ShallowWrapper {}`;
+exports[`ScreenNew should render a view 1`] = `
+<Fragment>
+  <Link
+    className="button"
+    to="/leads/new"
+  >
+    <span
+      className="icon"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon="plus"
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size={null}
+        spin={false}
+        symbol={false}
+        title=""
+        transform={null}
+      />
+    </span>
+    <span>
+      New Lead
+    </span>
+  </Link>
+  <div
+    className="container__table pt-20"
+  >
+    <Table
+      columns={
+        Array [
+          Object {
+            "paths": Array [
+              "",
+            ],
+            "renderer": [Function],
+            "titles": Array [
+              "Full Name",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "email",
+            ],
+            "titles": Array [
+              "Email",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "document_type",
+            ],
+            "titles": Array [
+              "Document Type",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "document_id",
+            ],
+            "titles": Array [
+              "Document",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "score",
+            ],
+            "titles": Array [
+              "Score",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "status",
+            ],
+            "titles": Array [
+              "Status",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "",
+            ],
+            "renderer": [Function],
+            "titles": Array [
+              "Information",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "",
+            ],
+            "renderer": [Function],
+            "titles": Array [
+              "Credito",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "",
+            ],
+            "renderer": [Function],
+            "titles": Array [
+              "Actions",
+            ],
+          },
+        ]
+      }
+      data={Array []}
+      keyField="id"
+      loading={false}
+    />
+  </div>
+</Fragment>
+`;
 
-exports[`ScreenNew should render a view render data 1`] = `ShallowWrapper {}`;
+exports[`ScreenNew should render a view render data 1`] = `
+<Fragment>
+  <Link
+    className="button"
+    to="/leads/new"
+  >
+    <span
+      className="icon"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon="plus"
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size={null}
+        spin={false}
+        symbol={false}
+        title=""
+        transform={null}
+      />
+    </span>
+    <span>
+      New Lead
+    </span>
+  </Link>
+  <div
+    className="container__table pt-20"
+  >
+    <Table
+      columns={
+        Array [
+          Object {
+            "paths": Array [
+              "",
+            ],
+            "renderer": [Function],
+            "titles": Array [
+              "Full Name",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "email",
+            ],
+            "titles": Array [
+              "Email",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "document_type",
+            ],
+            "titles": Array [
+              "Document Type",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "document_id",
+            ],
+            "titles": Array [
+              "Document",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "score",
+            ],
+            "titles": Array [
+              "Score",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "status",
+            ],
+            "titles": Array [
+              "Status",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "",
+            ],
+            "renderer": [Function],
+            "titles": Array [
+              "Information",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "",
+            ],
+            "renderer": [Function],
+            "titles": Array [
+              "Credito",
+            ],
+          },
+          Object {
+            "paths": Array [
+              "",
+            ],
+            "renderer": [Function],
+            "titles": Array [
+              "Actions",
+            ],
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "_id": "5d180279b4e857d8c303edeb",
+            "address": "Cra 46A #40AS -16",
+            "approved_judicial_past": false,
+            "approved_personal_information": true,
+            "document_id": "1095804909",
+            "document_type": "CC",
+            "email": "andrepipemc@gmail.com",
+            "first_name": "Andres",
+            "last_name": "Felipe",
+            "score": 0,
+            "status": "Lost",
+          },
+        ]
+      }
+      keyField="id"
+      loading={true}
+    />
+  </div>
+</Fragment>
+`;

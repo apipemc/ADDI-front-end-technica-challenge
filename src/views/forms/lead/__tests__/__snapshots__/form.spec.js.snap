@@ -1,3 +1,378 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LeadForm should render a view 1`] = `ShallowWrapper {}`;
+exports[`LeadForm should render a view 1`] = `
+<Form
+  onSubmit={[MockFunction]}
+>
+  <HiddenField
+    name="_id"
+  />
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="first_name"
+    >
+      First Name:
+    </label>
+    <div
+      className="control-input"
+    >
+      <TextField
+        id="first_name"
+        name="first_name"
+        placeholder="First Name"
+        validate={
+          Array [
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="last_name"
+    >
+      Last Name:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <TextField
+        id="last_name"
+        name="last_name"
+        placeholder="Last Name"
+        validate={
+          Array [
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="document_type"
+    >
+      Document Type:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <div
+        className="select"
+      >
+        <SelectField
+          id="document_type"
+          name="document_type"
+          options={
+            Array [
+              Object {
+                "label": "Seleccione",
+                "value": "",
+              },
+              Object {
+                "label": "Cédula de Ciudadania",
+                "value": "CC",
+              },
+              Object {
+                "label": "Cédula de extranjeria",
+                "value": "CE",
+              },
+              Object {
+                "label": "Pasaporte",
+                "value": "PS",
+              },
+              Object {
+                "label": "Documento Nacional de Identidad",
+                "value": "DNI",
+              },
+              Object {
+                "label": "Otros",
+                "value": "Other",
+              },
+            ]
+          }
+          validate={
+            Array [
+              [Function],
+            ]
+          }
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="email"
+    >
+      Document:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <TextField
+        name="document_id"
+        placeholder="Document"
+        validate={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="date_of_expedition"
+    >
+      Date of Expedition:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <DatePickerField
+        id="date_of_expedition"
+        max="2019-07-04"
+        name="date_of_expedition"
+        placeholder="Date of Expedition"
+        validate={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="email"
+    >
+      Email:
+    </label>
+    <div
+      className="control-input"
+    >
+      <TextField
+        id="email"
+        name="email"
+        placeholder="Email"
+        type="email"
+        validate={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="date_of_birth"
+    >
+      Date of Birthday:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <DatePickerField
+        id="date_of_birthday"
+        max="2019-07-04"
+        name="date_of_birthday"
+        placeholder="Date of Birthday"
+        validate={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="gender"
+    >
+      Gender:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <div
+        className="select"
+      >
+        <SelectField
+          id="gender"
+          name="gender"
+          options={
+            Array [
+              Object {
+                "label": "Seleccione",
+                "value": "",
+              },
+              Object {
+                "label": "Masculino",
+                "value": "Male",
+              },
+              Object {
+                "label": "Femenino",
+                "value": "Female",
+              },
+              Object {
+                "label": "Otros",
+                "value": "Other",
+              },
+            ]
+          }
+          validate={
+            Array [
+              [Function],
+            ]
+          }
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="address"
+    >
+      Address:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <TextField
+        id="address"
+        name="address"
+        placeholder="Address"
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="neighborhood"
+    >
+      Neighborhood:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <TextField
+        id="neighborhood"
+        name="neighborhood"
+        placeholder="Neighborhood"
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="phone_number"
+    >
+      Phone Number:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <TextField
+        id="phone_number"
+        name="phone_number"
+        placeholder="Phone Number"
+        type="tel"
+        validate={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="mobile_number"
+    >
+      Mobile Number:
+       
+    </label>
+    <div
+      className="control-input"
+    >
+      <TextField
+        id="mobile_number"
+        name="mobile_number"
+        placeholder="Mobile Number"
+        type="tel"
+        validate={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <div
+      className="control-input"
+    >
+      <button
+        className="button success is-fullwidth"
+        disabled={false}
+        type="submit"
+      >
+        Create
+      </button>
+    </div>
+  </div>
+</Form>
+`;

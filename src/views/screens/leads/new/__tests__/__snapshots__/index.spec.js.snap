@@ -1,3 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ScreenNew should render a view 1`] = `ShallowWrapper {}`;
+exports[`ScreenNew should render a view 1`] = `
+<Fragment>
+  <Link
+    className="button"
+    to="/leads"
+  >
+    <span
+      className="icon"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon="arrow-left"
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size={null}
+        spin={false}
+        symbol={false}
+        title=""
+        transform={null}
+      />
+    </span>
+    <span>
+      Back
+    </span>
+  </Link>
+  <div
+    className="form__new pt-20"
+  >
+    <ReduxForm
+      destroyOnUnmount={true}
+      enableReinitialize={false}
+      forceUnregisterOnUnmount={false}
+      form="leads"
+      getFormState={[Function]}
+      keepDirtyOnReinitialize={false}
+      onSubmit={[Function]}
+      onSubmitFail={[Function]}
+      onSubmitSuccess={[Function]}
+      persistentSubmitErrors={false}
+      pure={true}
+      shouldAsyncValidate={[Function]}
+      shouldError={[Function]}
+      shouldValidate={[Function]}
+      shouldWarn={[Function]}
+      submitAsSideEffect={false}
+      touchOnBlur={true}
+      touchOnChange={false}
+      updateUnregisteredFields={false}
+    />
+  </div>
+</Fragment>
+`;

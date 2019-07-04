@@ -11,9 +11,6 @@ import LeadForm from 'views/forms/lead';
 
 class Screen extends Component {
   static propTypes = {
-    history: PropTypes.shape({
-      push: PropTypes.func.isRequired,
-    }).isRequired,
     loading: PropTypes.bool.isRequired,
     item: PropTypes.shape({}),
     match: PropTypes.shape({
@@ -38,13 +35,6 @@ class Screen extends Component {
     retrieveLead(id);
   }
 
-  onSubmitSuccess = () => {
-    const {
-      history: { push },
-    } = this.props;
-    push('/leads');
-  };
-
   render() {
     const { loading, item } = this.props;
 
@@ -61,11 +51,7 @@ class Screen extends Component {
           <span>Back</span>
         </Link>
         <div className="form__new pt-20">
-          <LeadForm
-            initialValues={item}
-            onSubmitSuccess={this.onSubmitSuccess}
-            onSubmit={bindedUpdateLead}
-          />
+          <LeadForm initialValues={item} onSubmit={bindedUpdateLead} />
         </div>
       </>
     );

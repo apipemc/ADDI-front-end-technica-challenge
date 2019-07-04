@@ -32,8 +32,8 @@ export function* createLeadSaga({ payload }) {
     yield put(createLead.success(data));
     yield call([toast, 'success'], 'Lead created correctly.!');
   } catch ({ response }) {
-    const { errors } = response.data;
-    yield put(createLead.failure(errorToSubmissionError(errors, payload)));
+    const { data } = response;
+    yield put(createLead.failure(errorToSubmissionError(data, payload)));
   } finally {
     yield put(createLead.fulfill());
   }
@@ -48,8 +48,8 @@ export function* updateLeadSaga({ payload }) {
     yield put(updateLead.success(data));
     yield call([toast, 'success'], 'Lead updated correctly');
   } catch ({ response }) {
-    const { errors } = response.data;
-    yield put(updateLead.failure(errorToSubmissionError(errors, payload)));
+    const { data } = response;
+    yield put(updateLead.failure(errorToSubmissionError(data, payload)));
   } finally {
     yield put(updateLead.fulfill());
   }

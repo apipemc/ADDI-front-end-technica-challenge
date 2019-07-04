@@ -1,5 +1,142 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table should render a view 1`] = `ShallowWrapper {}`;
+exports[`Table should render a view 1`] = `
+<table
+  className="table"
+>
+  <thead
+    className="table__thead"
+  >
+    <tr
+      className="table__thead-tr"
+    >
+      <th
+        className="table__th--col"
+        key="th-0"
+        scope="col"
+        style={
+          Object {
+            "width": "16.666666666666668%",
+          }
+        }
+      >
+        Full Name
+      </th>
+      <th
+        className="table__th--col"
+        key="th-1"
+        scope="col"
+        style={
+          Object {
+            "width": "16.666666666666668%",
+          }
+        }
+      >
+        Email
+      </th>
+      <th
+        className="table__th--col"
+        key="th-2"
+        scope="col"
+        style={
+          Object {
+            "width": "16.666666666666668%",
+          }
+        }
+      >
+        Document Type
+      </th>
+      <th
+        className="table__th--col"
+        key="th-3"
+        scope="col"
+        style={
+          Object {
+            "width": "16.666666666666668%",
+          }
+        }
+      >
+        Document
+      </th>
+      <th
+        className="table__th--col"
+        key="th-4"
+        scope="col"
+        style={
+          Object {
+            "width": "16.666666666666668%",
+          }
+        }
+      >
+        Score
+      </th>
+      <th
+        className="table__th--col"
+        key="th-5"
+        scope="col"
+        style={
+          Object {
+            "width": "16.666666666666668%",
+          }
+        }
+      >
+        Status
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className="table__tbody"
+  >
+    <tr
+      className="table__tbody-tr"
+    >
+      <td
+        className="table__td"
+        colSpan={6}
+      >
+        <onlyUpdateForKeys(Loader)
+          color="#000000"
+          css={Object {}}
+          loading={true}
+          size={35}
+          sizeUnit="px"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
 
-exports[`Table should render a view loading 1`] = `ShallowWrapper {}`;
+exports[`Table should render a view loading 1`] = `
+<table
+  className="table"
+>
+  <thead
+    className="table__thead"
+  >
+    <tr
+      className="table__thead-tr"
+    />
+  </thead>
+  <tbody
+    className="table__tbody"
+  >
+    <tr
+      className="table__tbody-tr"
+    >
+      <td
+        className="table__td"
+        colSpan={0}
+      >
+        <onlyUpdateForKeys(Loader)
+          color="#000000"
+          css={Object {}}
+          loading={true}
+          size={35}
+          sizeUnit="px"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

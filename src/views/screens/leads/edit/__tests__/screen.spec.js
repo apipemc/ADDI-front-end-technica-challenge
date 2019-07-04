@@ -10,9 +10,6 @@ describe('ScreenNew', () => {
     },
     retrieveLead: jest.fn(),
     loading: false,
-    history: {
-      push: jest.fn(),
-    },
   };
 
   const MOCK_LEAD = {

@@ -1,3 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render a view 1`] = `ShallowWrapper {}`;
+exports[`Header should render a view 1`] = `
+<header>
+  <nav
+    aria-label="navigation"
+    className="navbar"
+    role="navigation"
+  >
+    <div
+      className="navbar-brand"
+    >
+      <Link
+        className="navbar-item"
+        to="/"
+      >
+        <img
+          alt="Logo Addi"
+          src="logo-addi.png"
+        />
+      </Link>
+    </div>
+    <ul
+      className="navbar-items"
+    >
+      <li
+        className="navbar-item"
+      >
+        <NavLink
+          to="/leads"
+        >
+          Leads
+        </NavLink>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;
